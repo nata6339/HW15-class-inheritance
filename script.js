@@ -1,5 +1,6 @@
-function Clock() {
+function Clock(elem) {
     this.isShort = false;
+    this.elem = elem;
     this.formatDate = function (format) {
         let fullDate = new Date();
         let hours = this.fixNumber(fullDate.getHours());
@@ -19,28 +20,31 @@ function Clock() {
             return num;
     }
 
-    // this.render = function (){
-    //     if(this.isShort){
-    //         return this.formatDate(this.shortFormat);
-    //     } else {
-    //         return this.formatDate(this.fullFormat);
-    //     }
-    // };
+    this.render = function (){
+        if(this.isShort){
+        //     return this.formatDate(this.shortFormat);
+        // } else {
+        //     return this.formatDate(this.fullFormat);
+        // }
+        this.elem = 'hh:mm';
+
+        } else {
+        this.elem = 'hh:mm:ss'
+        }
+    }
 
     this.toggle = function (){
         this.isShort = !this.isShort;
     }
 
-    setInterval(function (){
-        document.getElementById('clock').innerHTML = clock.formatDate('hh:mm:ss');
-    },1000);
+    setInterval(() => this.render(), 1000);
 }
 document.getElementById('clock').addEventListener('click', function () {
     clock.toggle();
 })
 
 // function Short(){
-//     this.formatDateshortFormat = 'hh:mm'
+//     this.shortFormat = 'hh:mm'
 // }
 //
 // function Full() {
@@ -49,3 +53,4 @@ document.getElementById('clock').addEventListener('click', function () {
 // Short.prototype = new Clock();
 // Full.prototype = new Clock();
 let clock = new Clock();
+document.getElementById('clock').innerHTML = clock.elem;
