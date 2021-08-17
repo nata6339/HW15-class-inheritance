@@ -19,33 +19,33 @@ function Clock() {
             return num;
     }
 
-    this.render = function (){
-        if(this.isShort){
-            return this.formatDate(this.shortFormat);
-        } else {
-            return this.formatDate(this.fullFormat);
-        }
-    };
+    // this.render = function (){
+    //     if(this.isShort){
+    //         return this.formatDate(this.shortFormat);
+    //     } else {
+    //         return this.formatDate(this.fullFormat);
+    //     }
+    // };
 
     this.toggle = function (){
         this.isShort = !this.isShort;
     }
 
     setInterval(function (){
-        document.getElementById('clock').innerHTML = clock.render();
+        document.getElementById('clock').innerHTML = clock.formatDate('hh:mm:ss');
     },1000);
 }
 document.getElementById('clock').addEventListener('click', function () {
     clock.toggle();
 })
 
-function Short(){
-    this.shortFormat = 'hh:mm'
-}
-
-function Full() {
-    this.fullFormat = 'hh:mm:ss'
-}
-Short.prototype = new Clock();
-Full.prototype = new Clock();
+// function Short(){
+//     this.formatDateshortFormat = 'hh:mm'
+// }
+//
+// function Full() {
+//     this.fullFormat = 'hh:mm:ss'
+// }
+// Short.prototype = new Clock();
+// Full.prototype = new Clock();
 let clock = new Clock();
