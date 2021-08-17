@@ -25,25 +25,27 @@ function Clock() {
         } else {
             return this.formatDate(this.fullFormat);
         }
-    }
-
-    this.toggle = function() {
-        this.isShort = !this.isShort;
     };
+
+    this.toggle = function (){
+        this.isShort = !this.isShort;
+    }
 
     setInterval(function (){
         document.getElementById('clock').innerHTML = clock.render();
     },1000);
-    document.getElementById('clock').addEventListener('click', function (){
-        clock.toggle();
-    })
 }
+document.getElementById('clock').addEventListener('click', function () {
+    clock.toggle();
+})
+
 function Short(){
-    this.shortFormat = 'hh:mm';
+    this.shortFormat = 'hh:mm'
 }
+
 function Full() {
-    this.fullFormat = 'hh:mm:ss';
+    this.fullFormat = 'hh:mm:ss'
 }
-Short.prototype = Clock;
-Full.prototype = Clock;
+Short.prototype = new Clock();
+Full.prototype = new Clock();
 let clock = new Clock();
