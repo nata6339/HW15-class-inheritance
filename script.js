@@ -26,10 +26,10 @@ function Clock(elem) {
         // } else {
         //     return this.formatDate(this.fullFormat);
         // }
-        this.elem = 'hh:mm';
+        return this.elem = this.formatDate('hh:mm');
 
         } else {
-        this.elem = 'hh:mm:ss'
+        return this.elem = 'hh:mm:ss'
         }
     }
 
@@ -52,5 +52,4 @@ document.getElementById('clock').addEventListener('click', function () {
 // }
 // Short.prototype = new Clock();
 // Full.prototype = new Clock();
-let clock = new Clock();
-document.getElementById('clock').innerHTML = clock.elem;
+let clock = new Clock(document.getElementById('clock'));
