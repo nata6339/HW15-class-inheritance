@@ -47,13 +47,13 @@ document.getElementById('clock').addEventListener('click', function () {
 
 
 
-// function Short(){
-//     this.shortFormat = 'hh:mm';
-// }
-//
-// function Full() {
-//     this.fullFormat = 'hh:mm:ss';
-// }
-// Short.prototype = new Clock();
-// Full.prototype = new Clock();
+function Short(){
+
+}
+
+function Full() {
+
+}
+Short.prototype = new Clock();
+Full.prototype = new Clock();
 let clock = new Clock(document.getElementById('clock'));
