@@ -3,6 +3,10 @@ function Clock(elem) {
     this.elem = elem;
     this.shortFormat = 'hh:mm';
     this.fullFormat = 'hh:mm:ss'
+    this.start = function (){
+        this.render();
+        setInterval(() => this.render(), 1000);
+    };
     this.formatDate = function (format) {
         let fullDate = new Date();
         let hours = this.fixNumber(fullDate.getHours());
@@ -34,11 +38,14 @@ function Clock(elem) {
         this.isShort = !this.isShort;
     }
 
-    setInterval(() => this.render(), 1000);
+
 }
+
 document.getElementById('clock').addEventListener('click', function () {
     clock.toggle();
 })
+
+
 
 // function Short(){
 //     this.shortFormat = 'hh:mm';
