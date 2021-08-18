@@ -29,7 +29,7 @@ function Clock(elem) {
         return this.elem = this.formatDate('hh:mm');
 
         } else {
-        return this.elem = 'hh:mm:ss'
+        return this.elem = this.formatDate('hh:mm:ss')
         }
     }
 
@@ -52,4 +52,4 @@ document.getElementById('clock').addEventListener('click', function () {
 // }
 // Short.prototype = new Clock();
 // Full.prototype = new Clock();
-let clock = new Clock(document.getElementById('clock'));
+let clock = new Clock(document.getElementById('clock').innerHTML);
