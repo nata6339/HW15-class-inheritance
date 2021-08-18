@@ -26,10 +26,10 @@ function Clock(elem) {
         // } else {
         //     return this.formatDate(this.fullFormat);
         // }
-        return this.elem = this.formatDate('hh:mm');
+            this.elem.innerHTML = this.formatDate.shortFormat;
 
         } else {
-        return this.elem = this.formatDate('hh:mm:ss')
+            this.elem.innerHTML = this.formatDate.fullFormat;
         }
     }
 
@@ -43,13 +43,13 @@ document.getElementById('clock').addEventListener('click', function () {
     clock.toggle();
 })
 
-// function Short(){
-//     this.shortFormat = 'hh:mm'
-// }
-//
-// function Full() {
-//     this.fullFormat = 'hh:mm:ss'
-// }
-// Short.prototype = new Clock();
-// Full.prototype = new Clock();
-let clock = new Clock(document.getElementById('clock').innerHTML);
+function Short(){
+    this.shortFormat = 'hh:mm';
+}
+
+function Full() {
+    this.fullFormat = 'hh:mm:ss';
+}
+Short.prototype = new Clock();
+Full.prototype = new Clock();
+let clock = new Clock(document.getElementById('clock'));
