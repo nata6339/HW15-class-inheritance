@@ -5,7 +5,7 @@ function Clock(elem) {
     this.fullFormat = 'hh:mm:ss'
     this.start = function (){
         this.render();
-        setInterval(() => this.render(), 1000);
+        setInterval(() => this.render(), 500);
     };
     this.formatDate = function (format) {
         let fullDate = new Date();
@@ -53,7 +53,7 @@ this.shortFormat = 'hh:mm'
 function Full() {
 this.fullFormat = 'hh:mm:ss'
 }
-Short.prototype = new Clock();
-Full.prototype = new Clock();
+Short.prototype = new Clock(document.getElementById('clock'));
+Full.prototype = new Clock(document.getElementById('clock'));
 let clock = new Clock(document.getElementById('clock'));
 clock.start();
