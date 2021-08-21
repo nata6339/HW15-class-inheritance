@@ -1,7 +1,7 @@
 function Clock(elem) {
     this.isShort = false;
     this.elem = elem;
-    this.shortFormat = 'hh:mm';
+    this.shortFormat = 'hh:mm'
     this.fullFormat = 'hh:mm:ss'
     this.start = function (){
         this.render();
@@ -32,6 +32,7 @@ function Clock(elem) {
         } else {
             this.elem.innerHTML = this.formatDate(this.fullFormat);
         }
+
     }
 
     this.toggle = function (){
@@ -45,15 +46,14 @@ document.getElementById('clock').addEventListener('click', function () {
     clock.toggle();
 })
 
-
-
 function Short(){
-
+this.shortFormat = 'hh:mm'
 }
 
 function Full() {
-
+this.fullFormat = 'hh:mm:ss'
 }
 Short.prototype = new Clock();
 Full.prototype = new Clock();
 let clock = new Clock(document.getElementById('clock'));
+clock.start();
