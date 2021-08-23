@@ -53,7 +53,13 @@ this.shortFormat = 'hh:mm'
 function Full() {
 this.fullFormat = 'hh:mm:ss'
 }
+
 Short.prototype = new Clock(document.getElementById('clock'));
 Full.prototype = new Clock(document.getElementById('clock'));
 let clock = new Clock(document.getElementById('clock'));
+let shortClock = new Clock(document.getElementById('short'));
+let fullClock = new Clock(document.getElementById('full'))
+
 clock.start();
+shortClock.start();
+fullClock.start()
