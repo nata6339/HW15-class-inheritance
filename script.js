@@ -37,15 +37,17 @@ function Clock(elem) {
     this.toggle = function () {
         this.isShort = !this.isShort;
     };
+
+    document.getElementById('clock').addEventListener('click', function () {
+        clock.toggle();
+    })
 }
 
-document.getElementById('clock').addEventListener('click', function () {
-    clock.toggle();
-})
+
 
 function Short(elem) {
     this.elem = elem;
-    this.shortFormat = 'hh*mm'
+    this.fullFormat = 'hh*mm'
 }
 
 function Full(elem) {
