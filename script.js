@@ -45,16 +45,16 @@ document.getElementById('clock').addEventListener('click', function () {
 
 function Short(elem) {
     this.elem = elem;
-    this.shortFormat = 'hh:mm:ss'
+    this.shortFormat = 'hh*mm'
 }
 
 function Full(elem) {
     this.elem = elem;
-    this.fullFormat = 'hh:mm'
+    this.fullFormat = 'hh/mm/ss'
 }
 
-Full.prototype = new Clock(document.getElementById('clock'));
-Short.prototype = new Clock(document.getElementById('clock'));
+Full.prototype = new Clock();
+Short.prototype = new Clock();
 
 let clock = new Clock(document.getElementById('clock'));
 let fullClock = new Full(document.getElementById('full'));
