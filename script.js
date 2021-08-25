@@ -38,8 +38,8 @@ function Clock(elem) {
         this.isShort = !this.isShort;
     };
 
-    document.getElementById('clock').addEventListener('click', function () {
-        clock.toggle();
+    this.elem.addEventListener('click', function () {
+        this.toggle();
     })
 }
 
