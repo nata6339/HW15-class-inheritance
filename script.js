@@ -3,7 +3,7 @@ function Clock(elem) {
     this.elem = elem;
     this.shortFormat = 'hh:mm'
     this.fullFormat = 'hh:mm:ss'
-    this.start = function (){
+    this.start = function () {
         this.render();
         setInterval(() => this.render(), 500);
     };
@@ -18,51 +18,49 @@ function Clock(elem) {
             .replace('mm', minutes)
             .replace('ss', seconds)
         return ren;
-    }
+    };
 
     this.fixNumber = function (num) {
         if (num < 10)
             return '0' + num;
-            return num;
-    }
+        return num;
+    };
 
-    this.render = function (){
-        if(this.isShort){
+    this.render = function () {
+        if (this.isShort) {
             this.elem.innerHTML = this.formatDate(this.shortFormat);
         } else {
             this.elem.innerHTML = this.formatDate(this.fullFormat);
         }
+    };
 
-    }
-
-    this.toggle = function (){
+    this.toggle = function () {
         this.isShort = !this.isShort;
-    }
-
-
+    };
 }
 
 document.getElementById('clock').addEventListener('click', function () {
     clock.toggle();
 })
 
-function Short(elem){
+function Short(elem) {
     this.elem = elem;
-this.shortFormat = 'hh:mm'
+    this.shortFormat = 'hh:mm:ss'
 }
 
 function Full(elem) {
     this.elem = elem;
-this.fullFormat = 'hh:mm:ss'
+    this.fullFormat = 'hh:mm'
 }
 
-Short.prototype = new Clock(document.getElementById('clock'));
 Full.prototype = new Clock(document.getElementById('clock'));
+Short.prototype = new Clock(document.getElementById('clock'));
 
 let clock = new Clock(document.getElementById('clock'));
+let fullClock = new Full(document.getElementById('full'));
 let shortClock = new Short(document.getElementById('short'));
-let fullClock = new Full(document.getElementById('full'))
 
 clock.start();
+fullClock.start();
 shortClock.start();
-fullClock.start()
+
