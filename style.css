@@ -1,4 +1,4 @@
-#clock, #short, #full {
+#clock, #star, #slash {
     position: absolute;
     top: 20%;
     width: 99%;
@@ -9,10 +9,12 @@
     cursor: pointer;
 }
 
-#short {
+#slash{
+    top: 40%
+}
+
+#star {
     top: 60%
 }
 
-#full{
-    top: 40%
-}
+

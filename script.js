@@ -6,9 +6,7 @@ function Clock(elem) {
     this.start = function () {
         this.render();
         setInterval(() => this.render(), 500);
-        this.elem.addEventListener('click', function () {
-            this.toggle();
-        })
+        this.elem.addEventListener('click',() => this.toggle());
     }
     this.formatDate = function (format) {
         let fullDate = new Date();
@@ -40,35 +38,28 @@ function Clock(elem) {
     this.toggle = function () {
         this.isShort = !this.isShort;
     };
-
-    // if (this.elem === !undefined){
-    //     this.elem.addEventListener('click', function () {
-    //         this.toggle();
-    //     })
-    // }
-
 }
 
-
-
-function Short(elem) {
+function Star(elem) {
     this.elem = elem;
-    this.fullFormat = 'hh*mm'
+    this.shortFormat = 'hh*mm';
+    this.fullFormat = 'hh*mm*ss';
 }
 
-function Full(elem) {
+function Slash(elem) {
     this.elem = elem;
-    this.fullFormat = 'hh/mm/ss'
+    this.shortFormat = 'hh/mm';
+    this.fullFormat = 'hh/mm/ss';
 }
 
-Full.prototype = new Clock();
-Short.prototype = new Clock();
+Star.prototype = new Clock();
+Slash.prototype = new Clock();
 
 let clock = new Clock(document.getElementById('clock'));
-let fullClock = new Full(document.getElementById('full'));
-let shortClock = new Short(document.getElementById('short'));
+let star = new Star(document.getElementById('star'));
+let slash = new Slash(document.getElementById('slash'));
 
 clock.start();
-fullClock.start();
-shortClock.start();
+star.start();
+slash.start();
 
