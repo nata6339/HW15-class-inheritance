@@ -6,7 +6,10 @@ function Clock(elem) {
     this.start = function () {
         this.render();
         setInterval(() => this.render(), 500);
-    };
+        this.elem.addEventListener('click', function () {
+            this.toggle();
+        })
+    }
     this.formatDate = function (format) {
         let fullDate = new Date();
         let hours = this.fixNumber(fullDate.getHours());
@@ -38,12 +41,11 @@ function Clock(elem) {
         this.isShort = !this.isShort;
     };
 
-    if (this.elem === !undefined){
-        this.elem.addEventListener('click', function () {
-            this.toggle();
-        })
-    }
-
+    // if (this.elem === !undefined){
+    //     this.elem.addEventListener('click', function () {
+    //         this.toggle();
+    //     })
+    // }
 
 }
 
