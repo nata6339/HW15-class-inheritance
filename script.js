@@ -46,19 +46,22 @@ document.getElementById('clock').addEventListener('click', function () {
     clock.toggle();
 })
 
-function Short(){
+function Short(elem){
+    this.elem = elem;
 this.shortFormat = 'hh:mm'
 }
 
-function Full() {
+function Full(elem) {
+    this.elem = elem;
 this.fullFormat = 'hh:mm:ss'
 }
 
 Short.prototype = new Clock(document.getElementById('clock'));
 Full.prototype = new Clock(document.getElementById('clock'));
+
 let clock = new Clock(document.getElementById('clock'));
-let shortClock = new Clock(document.getElementById('short'));
-let fullClock = new Clock(document.getElementById('full'))
+let shortClock = new Short(document.getElementById('short'));
+let fullClock = new Full(document.getElementById('full'))
 
 clock.start();
 shortClock.start();
