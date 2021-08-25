@@ -38,9 +38,13 @@ function Clock(elem) {
         this.isShort = !this.isShort;
     };
 
-    this.elem.addEventListener('click', function () {
-        this.toggle();
-    })
+    if (this.elem === !undefined){
+        this.elem.addEventListener('click', function () {
+            this.toggle();
+        })
+    }
+
+
 }
 
 
